@@ -3,7 +3,7 @@
  * main - working on a fizzbuzz
  * Return: always 0
  */
-int main(void)
+int main()
 {
 	int i;
 
