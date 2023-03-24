@@ -3,7 +3,7 @@
  * main - working on a fizzbuzz
  * Return: always 0
  */
-int main()
+int main(void)
 {
 	int i;
 
@@ -14,23 +14,20 @@ int main()
 			printf("FizzBuzz");
 			printf(" ");
 		}
+		else if (i % 3 == 0)
+		{
+			printf("Fizz");
+			printf(" ");
+		}
+		else if (i % 5 == 0)
+		{
+			printf("Buzz");
+			printf(" ");
+		}
 		else
 		{
-			if (i % 3 == 0)
-			{
-				printf("Fizz");
-				printf(" ");
-			}
-			else if (i % 5 == 0)
-			{
-				printf("Buzz");
-				printf(" ");
-			}
-			else
-			{
-				printf("%d", i);
-				printf(" ");
-			}
+			printf("%d", i);
+			printf(" ");
 		}
 	}
 	printf("\n");
