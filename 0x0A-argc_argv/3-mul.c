@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
 {
 	int result, num1, num2;
 
-	if (argc < 1 || argc > 1)
+	if (argc < 1)
 	{
 		printf("Error\n");
 		return (1);
