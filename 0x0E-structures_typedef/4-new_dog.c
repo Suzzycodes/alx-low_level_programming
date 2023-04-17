@@ -3,7 +3,7 @@
 #include <string.h>
 #include "dog.h"
 /**
- * new_dog - typedef struct for new_dog
+ * new_dog - typedef for struct new_dog
  * @name: para 1
  * @age: para 2
  * @owner: para 3
