@@ -9,58 +9,48 @@
 
 void print_all(const char * const format, ...)
 {
-	va_list args;
-	char *s;
-	int i;
-	float f;
-	char c;
-	int j = 0;
+		int i = 0;
+		char *str, *sep = "";
 
-	va_start(args, format);
 
-	while (format && format[j])
-	{
-	switch (format[j])
-	{
-		case 'c':
-		c = (char) va_arg(args, int);
-		printf("%c", c);
-		break;
-		case 'i':
-		i = va_arg(args, int);
-		printf("%d", i);
-		break;
-		case 'f':
-		f = (float) va_arg(args, double);
-		printf("%f", f);
-		break;
-		case 's':
-		s = va_arg(args, char *);
-		if (s == NULL)
-		{
-			printf("(nil)");
-		} else
-		{
-			printf("%s", s);
-		}
-		break;
-		default:
-		break;
-	}
+		va_list list;
 
-		if (format[j + 1] && (format[j] == 'c' || format[j] == 'i' || format[j] == 'f' || format[j] == 's'))
+
+		va_start(list, format);
+
+
+		if (format)
 		{
-			if (format[j] == 'c' || format[j] == 'i' || format[j] == 'f')
+			while (format[i])
 			{
-				printf(", ");
-			} else
-			{
-				printf("%s", ", ");
+				switch (format[i])
+				{
+					case 'c':
+						printf("%s%c", sep, va_arg(list, int));
+						break;
+					case 'i':
+						printf("%s%d", sep, va_arg(list, int));
+						break;
+					case 'f':
+						printf("%s%f", sep, va_arg(list, double));
+						break;
+					case 's':
+						str = va_arg(list, char *);
+						
+						if (!str)
+							str = "(nil)";
+						printf("%s%s", sep, str);
+						break;
+					default:
+						i++;
+						continue;
+				}
+				sep = ", ";
+				i++;
 			}
 		}
-		j++;
-		}
+
 
 		printf("\n");
-		va_end(args);
-}
+		va_end(list);
+	}
